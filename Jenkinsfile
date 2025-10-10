@@ -25,24 +25,24 @@ pipeline
             }
         }
 
-    //     stage('BUILD-AND-TAG')
-    //     {
-    //         {
-    //             agent {label 'CWEB-2140-60-Appserver-Amalan' }
-    //         }
+        stage('BUILD-AND-TAG')
+        {
+            {
+                agent {label 'CWEB-2140-60-Appserver-Amalan' }
+            }
 
-    //         steps
-    //         {
-    //             script 
-    //             {
-    //                  // Build Docker image using Jenkins Docker Pipeline API 
-    //                  echo "Building Docker image ${IMAGE_NAME}..."
-    //                  app = docker.build("${IMAGE_NAME}")
-    //                  app.tag("latest")
-    //             }
+            steps
+            {
+                script 
+                {
+                     // Build Docker image using Jenkins Docker Pipeline API 
+                     echo "Building Docker image ${IMAGE_NAME}..."
+                     app = docker.build("${IMAGE_NAME}")
+                     app.tag("latest")
+                }
 
-    //         }
-    //     }
+            }
+        }
 
     //     stage('POST-TO-DOCKERHUB')
     //     {
