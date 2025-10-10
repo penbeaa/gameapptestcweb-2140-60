@@ -11,10 +11,8 @@ pipeline
 
     stages 
     {
-        stage('Cloning Git')
-        {
-            steps
-            {
+        stage('Cloning Git'){
+            steps{
                 checkout scm
             }
         }
