@@ -56,6 +56,10 @@ pipeline
                 {
                     echo "Pushing image ${IMAGE_NAME}:latest to Docker Hub.."
                     docker.withRegistry('https://registry.hub.docker.com', "${DOCKERHUB_CREDENTIALS}")
+                    {
+                        app.push("latest")
+                    } 
+
                 }
             }
 
