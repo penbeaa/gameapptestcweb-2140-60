@@ -17,13 +17,13 @@ pipeline
             }
         }
 
-    //     stage('SAST')
-    //     {
-    //         steps
-    //         {
-    //             sh 'echo Running SAST scan...'
-    //         }
-    //     }
+        stage('SAST')
+        {
+            steps
+            {
+                sh 'echo Running SAST scan...'
+            }
+        }
 
     //     stage('BUILD-AND-TAG')
     //     {
