@@ -27,9 +27,9 @@ pipeline
 
         stage('BUILD-AND-TAG')
         {
-            {
-                agent {label 'CWEB-2140-60-Appserver-Amalan' }
-            }
+            
+        agent {label 'CWEB-2140-60-Appserver-Amalan' }
+           
 
             steps
             {
@@ -44,46 +44,46 @@ pipeline
             }
         }
 
-    //     stage('POST-TO-DOCKERHUB')
-    //     {
-    //         {
-    //             agent {label 'CWEB-2140-60-Appserver-Amalan' }
-    //         }
+        stage('POST-TO-DOCKERHUB')
+        {
+            
+                agent {label 'CWEB-2140-60-Appserver-Amalan' }
+            
 
-    //         steps
-    //         {
-    //             script
-    //             {
-    //                 echo "Pushing image ${IMAGE_NAME}:latest to Docker Hub.."
-    //                 docker.withRegistry('https://registry.hub.docker.com', "${DOCKERHUB_CREDENTIALS}")
-    //             }
-    //         }
+            steps
+            {
+                script
+                {
+                    echo "Pushing image ${IMAGE_NAME}:latest to Docker Hub.."
+                    docker.withRegistry('https://registry.hub.docker.com', "${DOCKERHUB_CREDENTIALS}")
+                }
+            }
 
-    //     }
+        }
 
-    //     stage('DEPLOYMENT')
-    //     {
-    //         {
-    //             agent {label 'CWEB-2140-60-Appserver-Amalan' }
-    //         }
+        stage('DEPLOYMENT')
+        {
+            
+                agent {label 'CWEB-2140-60-Appserver-Amalan' }
+            
 
-    //         steps
-    //         {
-    //             echo 'Starting deployment using docker-compose...'
-    //             script
-    //             {
-    //                dir("${WORKSPACE}") 
-    //                {
-    //                 sh '''
-    //                     docker-compose down
-    //                     docker-compose up -d
-    //                     docker ps
-    //                 '''
-    //                }
-    //             }
-    //             echo 'Deployment completed successfully!'
-    //         }
-    //     }
+            steps
+            {
+                echo 'Starting deployment using docker-compose...'
+                script
+                {
+                   dir("${WORKSPACE}") 
+                   {
+                    sh '''
+                        docker-compose down
+                        docker-compose up -d
+                        docker ps
+                    '''
+                   }
+                }
+                echo 'Deployment completed successfully!'
+            }
+        }
 
 
     }
