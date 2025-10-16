@@ -2,7 +2,7 @@
 version: "3.8"
 services:
   gameapptestauso123:
-    image: amalan06/gameappnewimage:latest
+    image: penbeaa/gameappnewimage:latest
     build: .
     container_name: gameappautotest123
     ports:
