@@ -6,7 +6,7 @@ pipeline
     environment {
         // Docker Hub credentials ID stored in Jenkins
          DOCKERHUB_CREDENTIALS = 'docker-id'
-         IMAGE_NAME = 'amalan06/gameappnewimage'
+         IMAGE_NAME = 'penbeaa/gameappnewimage'
     }
 
     stages 
@@ -28,7 +28,7 @@ pipeline
         stage('BUILD-AND-TAG')
         {
             
-        agent {label 'CWEB-2140-60-Appserver-Amalan' }
+        agent {label 'CWEB-2140-60' }
            
 
             steps
@@ -47,7 +47,7 @@ pipeline
         stage('POST-TO-DOCKERHUB')
         {
             
-                agent {label 'CWEB-2140-60-Appserver-Amalan' }
+                agent {label 'CWEB-2140-60' }
             
 
             steps
@@ -68,7 +68,7 @@ pipeline
         stage('DEPLOYMENT')
         {
             
-                agent {label 'CWEB-2140-60-Appserver-Amalan' }
+                agent {label 'CWEB-2140-60' }
             
 
             steps
