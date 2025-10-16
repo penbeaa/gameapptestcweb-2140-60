@@ -28,7 +28,7 @@ pipeline
         stage('BUILD-AND-TAG')
         {
             
-        agent {label 'CWEB-2140-60' }
+             agent {label 'CWEB-2140-60' }
            
 
             steps
