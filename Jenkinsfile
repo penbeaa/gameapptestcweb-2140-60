@@ -24,9 +24,9 @@ pipeline
             {
                 script
                 {
-                    synkSecurity(
-                        synkInstallation: 'Snyk-installations',
-                        synkTokenId: '0d81bea7-bb0c-4755-817c-d9229518398c',
+                    snykSecurity(
+                        snykInstallation: 'Snyk-installations',
+                        snykTokenId: 'synk-id',
                         severity: 'critical'
                         
                     )
