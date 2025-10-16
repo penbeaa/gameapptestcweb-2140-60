@@ -17,11 +17,20 @@ pipeline
             }
         }
 
-        stage('SAST')
+        stage('SAST-TEST')
         {
+            agent any
             steps
             {
-                sh 'echo Running SAST scan...'
+                script
+                {
+                    synkSecurity(
+                        synkInstallation: 'Snyk-installations',
+                        synkTokenId: 'synk_id',
+                        severity: 'critical'
+                        
+                    )
+                }
             }
         }
 
