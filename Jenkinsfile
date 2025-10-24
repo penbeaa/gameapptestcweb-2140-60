@@ -34,6 +34,22 @@ pipeline
             }
         }
 
+        stage('SonarQube Analysis') {
+            agent {
+                label 'CWEB-2140-60'
+            }
+            steps {
+                script {
+                    def scannerHome = tool 'SonarQube-installaitions'
+                    withSonarQubeEnv('sonarqube') {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=gameapp \
+                            -Dsonar.sources=."
+                    }
+                }
+            }
+        }
+
         stage('BUILD-AND-TAG')
         {
             
